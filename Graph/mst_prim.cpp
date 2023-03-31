@@ -25,9 +25,9 @@ void Input() {
 }
 
 // 프림: 하나의 노드부터 시작하여 연결된 모든 간선을 우선순위 큐에 넣으면서 방문하지 않은 가장 짧은 간선만 택하여 연결
-// 시간복잡도: ElogV
+// 시간복잡도: O(ElogV)
 // 주의) 프림 알고리즘은 무방향 그래프에서만 가능하기 때문에 겹치는 방향이 있는 단방향 그래프면 크루스칼을 사용해야 한다.
-int prim () {
+int Prim () {
     priority_queue<pair<int,int>> pq;
     visited[R] = true;
     int mstWeight = 0;
@@ -57,7 +57,7 @@ int prim () {
 
 int main () {
     Input();
-    int mstWeight = prim();
+    int mstWeight = Prim();
 
     std::cout << mstWeight << '\n';
 

@@ -26,8 +26,8 @@ void Input () {
 
 // 플로이드 와샬: 모든 정점을 하나씩 k로 잡고 i -> j 와 i -> k -> j의 경로 중 짧은쪽을 선택
 // 점화식: graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
-// 시간복잡도: V^3
-void floydWarshall () {
+// 시간복잡도: (OV^3)
+void FloydWarshall () {
     for(int k = 1; k <= V; ++k) {
         for(int i = 1; i <= V; ++i) {
             for(int j = 1; j <= V; ++j){
@@ -39,7 +39,7 @@ void floydWarshall () {
     }
 }
 
-void print () {
+void Print () {
     for(int i = 1; i <= V; ++i){
         for(int j = 1; j <= V; ++j) {
             if(INF <= graph[i][j]) {
@@ -54,8 +54,8 @@ void print () {
 
 int main () {
     Input();
-    floydWarshall();
-    print();
+    FloydWarshall();
+    Print();
 
     return 0;
 }

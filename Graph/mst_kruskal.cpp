@@ -51,15 +51,15 @@ void Input () {
     }
 }
 
-bool cmp (const Edge& a, const Edge& b) {
+bool Cmp (const Edge& a, const Edge& b) {
     return a.weight < b.weight; // 오름차순 정렬
 }
 
-// 크루스칼 : 간선들을 오름차순으로 정렬하여 비용이 적은것부터 사이클을 확인하며 MST 구하기
-// 정렬에 (ElogE)
-int kruskal () {
+// 크루스칼: 간선들을 오름차순으로 정렬하여 비용이 적은것부터 사이클을 확인하며 MST 구하기
+// 시간복잡도: 정렬에 O(ElogE)
+int Kruskal () {
     UnionFind uf(E);
-    sort(edges.begin(), edges.end(), cmp);
+    sort(edges.begin(), edges.end(), Cmp);
     int mstWeight = 0;
 
     for(const auto& e : edges){
@@ -73,7 +73,7 @@ int kruskal () {
 
 int main () {
     Input();
-    int mstWeight = kruskal();
+    int mstWeight = Kruskal();
 
     std::cout << mstWeight << '\n';
     
