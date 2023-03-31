@@ -25,7 +25,9 @@ void Input() {
     }
 }
 
-// start 부터 각 정점까지의 최단거리를 구함
+// 다익스트라: start 부터 각 정점까지의 최단거리를 구함
+// 시간복잡도: ElogV (간선 수 E * 우선순위큐 연산 logV)
+// 음수 간선이 존재 할 경우 사용 불가
 void Dijkstra(int start) {
     priority_queue<pair<int, int>> pq;
 
