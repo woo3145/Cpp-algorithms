@@ -21,3 +21,7 @@
 - 최소 스패닝 트리
   - [Kruskal](./Graph/mst_kruskal.cpp)
   - [Prim](./Graph/mst_prim.cpp)
+
+### String
+
+- [KMP](./String/kmp.cpp)
