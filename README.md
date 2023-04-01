@@ -9,6 +9,8 @@
 - [GCD](./Number/gcd.cpp)
 - [LCM](./Number/lcm.cpp)
 - [Find Prime](./Number/find_prime.cpp)
+- 구간합
+  - [Fenwick Tree](./Number/fenwick_tree.cpp)
 
 ### Graph
 
