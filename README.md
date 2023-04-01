@@ -27,3 +27,4 @@
 ### String
 
 - [KMP](./String/kmp.cpp)
+- [Rabin-Karp](./String/rabin-karp.cpp)
