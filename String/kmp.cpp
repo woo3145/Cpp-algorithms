@@ -31,7 +31,7 @@ vector<int> CreateLPS(const string& pattern) {
     return lps;
 }
 
-// kMP: 문자열의 비교는 O(n)으로 작동함
+// KMP: 문자열의 비교는 O(n)으로 작동함
 // 패턴 문자열의 lps배열(접미사이면서 가장긴 접두사 배열) 정보를 이용하여 완전탐색(nm)을 할 필요 없이 선형시간(n) 비교가 가능하게 된다.
 void KMP(const string& str, const string& pattern) {
     int strLen = str.length();
