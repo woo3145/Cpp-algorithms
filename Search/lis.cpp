@@ -21,7 +21,9 @@ void Input() {
     }
 }
 
-// LIS(longest increasing subsequence)
+// DP로도 구할 수 있음 2^n (배열을 순회하며 그전까지의 배열 이중 순회, 자신보다 작은값 발견 시 dp[i] = max(dp[i], dp[i-?]+1) 로 갱신)
+
+// LIS(Longest Increasing Subsequence)
 // lis 배열은 각 요소의 최적의 위치를 찾을 뿐인 배열이다
 // ex) {2, 3, 1} 인 배열일 경우 lis배열은 [1, 3]이 되지만 실제 증가수열은 [2, 3]임
 // 따라서 각요소가 lis배열에 기록 될 때의 값을 저장시켜두고 출력해야 증가수열을 얻을 수 있다.

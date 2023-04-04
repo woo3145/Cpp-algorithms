@@ -14,8 +14,6 @@
 
 ### Graph
 
-- [BFS](./Graph/bfs.cpp)
-- [DFS](./Graph/dfs.cpp)
 - 최단경로
   - [Dijkstra](./Graph/dijkstra.cpp)
   - [Bellman-Ford](./Graph/bellman_ford.cpp)
@@ -25,6 +23,12 @@
   - [Prim](./Graph/mst_prim.cpp)
 - [Topology Sort](./Graph/topology_sort.cpp)
 
+### Search
+
+- [BFS](./Search/bfs.cpp)
+- [DFS](./Search/dfs.cpp)
+- [LIS](./Search/lis.cpp)
+
 ### String
 
 - [KMP](./String/kmp.cpp)
@@ -32,5 +36,5 @@
 
 ### DP
 
-- [LIS](./DP/lis.cpp)
 - [LCS](./DP/lcs.cpp)
+- [Tiling](./DP/tiling.cpp)
