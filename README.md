@@ -3,6 +3,7 @@
 ### Data Structure
 
 - [Disjoint Set](./DataStructure/disjoint_set.cpp)
+- [Matrix](./DataStructure/matrix.cpp)
 
 ### Number
 
