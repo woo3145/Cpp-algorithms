@@ -6,6 +6,8 @@ using std::pair;
 using std::vector;
 using std::queue;
 using std::ios;
+using std::cout;
+using std::cin;
 
 // https://www.acmicpc.net/problem/13460
 // 스타트링크에서 판매하는 어린이용 장난감 중에서 가장 인기가 많은 제품은 구슬 탈출이다. 
@@ -126,14 +128,32 @@ bool Bfs(const Position& r, const Position& b) {
 }
 
 int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     Input();
     bool success = Bfs(red, blue);
 
     if(success) {
-        std::cout << count << '\n';
+        cout << count << '\n';
     }else {
-        std::cout << -1 << '\n';
+        cout << -1 << '\n';
     }
     
     return 0;
 }
+
+/* Input 
+7 7
+#######
+#...RB#
+#.#####
+#.....#
+#####.#
+#O....#
+#######
+*/
+
+/* Output
+5
+*/

@@ -9,6 +9,8 @@ using std::ios;
 using std::cout;
 using std::cin;
 
+// https://www.acmicpc.net/problem/14502
+
 int N, M;
 vector<vector<int>> map;
 int dy[4] = {-1, 0, 1, 0};
@@ -27,7 +29,7 @@ void Input() {
 }
 
 
-int Check(vector<vector<int>> m) {
+int Bfs(vector<vector<int>> m) {
     queue<pair<int,int>> que;
 
     for(int i = 0; i < N; ++i){
@@ -53,6 +55,7 @@ int Check(vector<vector<int>> m) {
         }
     }
 
+    // Count SafeZone
     int safeZone = 0;
     for(int i = 0; i < N; ++i){
         for(int j = 0; j < M; ++j){
@@ -65,7 +68,7 @@ int Check(vector<vector<int>> m) {
 
 void backTracking(int y, int x, int depth) {
     if(depth == 3) {
-        int cnt = Check(map);
+        int cnt = Bfs(map);
         if(answer < cnt) answer = cnt;
         return;
     }
@@ -92,3 +95,19 @@ int main() {
 
     return 0;
 }
+
+
+/* Input 
+7 7
+2 0 0 0 1 1 0
+0 0 1 0 1 2 0
+0 1 1 0 1 0 0
+0 1 0 0 0 0 0
+0 0 0 0 0 1 1
+0 1 0 0 0 0 0
+0 1 0 0 0 0 0
+*/
+
+/* Output
+27
+*/
