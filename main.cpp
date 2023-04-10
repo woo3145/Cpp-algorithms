@@ -1,94 +1,70 @@
 #include <iostream>
 #include <vector>
-#include <queue>
+#include <set>
+#include <algorithm>
 
-using std::pair;
-using std::queue;
-using std::vector;
 using std::ios;
 using std::cout;
 using std::cin;
+using std::vector;
+using std::set;
+using std::min;
+
+#define INF 999999999
+
+struct comp {
+    bool operator() (const int& left, const int& right) const {
+        return left > right;
+    }
+};
 
 int N, M;
-vector<vector<int>> map;
-int dy[4] = {-1, 0, 1, 0};
-int dx[4] = {0, 1, 0, -1};
+vector<int> dp;
+int wok[1001];
+set<int, comp> woks;
 
-int answer = 0;
 
 void Input() {
     cin >> N >> M;
-    map.assign(N, vector<int>(M, 0));
-    for(int i = 0; i < N; ++i){
-        for(int j = 0; j < M; ++j){
-            cin >> map[i][j];
-        }
+    dp.assign(10001, INF);
+    for(int i = 0; i < M; ++i){
+        cin >> wok[i];
+        woks.insert(wok[i]);
     }
 }
 
-
-int Check(vector<vector<int>> m) {
-    queue<pair<int,int>> que;
-
-    for(int i = 0; i < N; ++i){
-        for(int j = 0; j < M; ++j){
-            if(m[i][j] == 2) {
-                que.push({i, j});
-            }
+void Solve() {
+    for(int i = 0; i < M - 1; ++i){
+        for(int j = i + 1; j < M; ++j){
+            if(wok[i] + wok[j] > 10000) continue;
+            woks.insert(wok[i] + wok[j]);
         }
     }
-    while(!que.empty()) {
-        int y = que.front().first;
-        int x = que.front().second;
-        que.pop();
+    set<int,comp>::iterator iter;
 
-        for(int i = 0; i < 4; ++i){
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if(ny < 0 || N <= ny || nx < 0 || M <= nx) continue;
-            if(m[ny][nx] == 0) {
-                m[ny][nx] = 2;
-                que.push({ny, nx});
-            }
-        }
-    }
-
-    int safeZone = 0;
-    for(int i = 0; i < N; ++i){
-        for(int j = 0; j < M; ++j){
-            if(m[i][j] == 0) ++safeZone;
-        }
-    }
-
-    return safeZone;
-}
-
-void backTracking(int y, int x, int depth) {
-    if(depth == 3) {
-        int cnt = Check(map);
-        if(answer < cnt) answer = cnt;
-        return;
-    }
-    for(int i = y; i < N; ++i){
-        for(int j = i == y ? x : 0; j < M; ++j){
-            if(map[i][j] == 0) {
-                map[i][j] = 1;
-                backTracking(i, j, depth + 1);
-                map[i][j] = 0;
-            }
+    for(iter = woks.begin(); iter != woks.end(); ++iter){
+        int n = *iter;
+        dp[n] = 1;
+        for(int i = n + 1; i <= N; ++i){
+            if(dp[i-n] == INF) continue;
+            dp[i] = min(dp[i], dp[i-n] + 1);
         }
     }
 }
-
-
-
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
     cout.tie(nullptr);
+
     Input();
-    backTracking(0, 0, 0);
-    cout << answer << '\n';
+    Solve();
+
+    if(dp[N] == INF) {
+        cout << -1 << '\n';
+    }else {
+        cout << dp[N] << '\n';
+    }
 
     return 0;
 }
+

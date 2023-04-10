@@ -12,6 +12,7 @@
 - [Find Prime](./Number/find_prime.cpp)
 - 구간합
   - [Fenwick Tree](./Number/fenwick_tree.cpp)
+- [Catalan Number](./Number/catalan.cpp)
 
 ### Graph
 
