@@ -4,14 +4,15 @@
 
 - [Disjoint Set](./DataStructure/disjoint_set.cpp)
 - [Matrix](./DataStructure/matrix.cpp)
+- 구간합
+  - [Fenwick Tree](./DataStructure/fenwick_tree.cpp)
+  - [Segment Tree](./DataStructure/segment_tree.cpp)
 
 ### Number
 
 - [GCD](./Number/gcd.cpp)
 - [LCM](./Number/lcm.cpp)
 - [Find Prime](./Number/find_prime.cpp)
-- 구간합
-  - [Fenwick Tree](./Number/fenwick_tree.cpp)
 - [Catalan Number](./Number/catalan.cpp)
 
 ### Graph
