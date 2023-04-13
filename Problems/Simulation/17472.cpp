@@ -12,7 +12,7 @@ using std::priority_queue;
 using std::sort;
 
 // https://www.acmicpc.net/problem/17472
-// 다리 만들기 2
+// 다리 만들기 2 (구현 + 그래프탐색 + MST)
 
 // 1. Dfs로 섬을 마킹
 // 2. 모든 땅을 돌면서 섬과 다른섬을 직선으로 이을때 이어지면 간선 생성
