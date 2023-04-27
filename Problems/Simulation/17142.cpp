@@ -13,6 +13,11 @@ using std::max;
 using std::pair;
 using std::queue;
 
+// https://www.acmicpc.net/problem/17142
+// 연구소 3 (조합, bfs)
+
+// 애먹은점
+// - 감염시간 계산 시 비활성 바이러스 고려
 
 int N, M;
 int board[51][51];
@@ -36,6 +41,7 @@ void Input() {
     }
 }
 
+// 바이러스를 활성화 시킬 조합을 구하는 함수
 void CalcCombination(int r, int idx, vector<pair<int, int>>& cur, vector<vector<pair<int, int>>>& result) {
     if(r == 0) {
         result.push_back(cur);
@@ -49,13 +55,14 @@ void CalcCombination(int r, int idx, vector<pair<int, int>>& cur, vector<vector<
     }
 }
 
+// 모든칸을 감염시킨 시간을 구하는 함수
 int Check() {
-    int day = -1;
+    int day = 1; // 감염시킬 모든 구역이 바이러스일 경우 1 
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j){
-            if(copyBoard[i][j] == 0) return -1;
+            if(copyBoard[i][j] == 0) return -1; // 감염을 못시킨 구역이 있으면 -1
 
-            if(board[i][j] != 1 && board[i][j] != 2) {
+            if(board[i][j] != 1 && board[i][j] != 2) { // 빈구역 이였던 구역만 계산
                 day = max(day, copyBoard[i][j]);
             }
         }
@@ -63,12 +70,13 @@ int Check() {
     return day;
 }
 
+// 방문배열, 기록배열 초기화
 void Init() {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j){
             visited[i][j] = false;
             copyBoard[i][j] = 0;
-            if(board[i][j] == 1 || board[i][j] == 2) {
+            if(board[i][j] == 1) {
                 copyBoard[i][j] = -1;
             }
         }
@@ -103,11 +111,12 @@ void Solve() {
 
                 if(ny < 0 || N <= ny || nx < 0 || N <= nx) continue;
                 if(visited[ny][nx]) continue;
-                if(copyBoard[ny][nx] == 0 || (copyBoard[ny][nx] == -1 && board[ny][nx] == 2)) {
-                    que.push({ny, nx});
-                    copyBoard[ny][nx] = copyBoard[pos.first][pos.second] + 1;
-                    visited[ny][nx] = true;
-                }
+
+                if(copyBoard[ny][nx] != 0) continue;
+                    
+                copyBoard[ny][nx] = copyBoard[pos.first][pos.second] + 1;
+                visited[ny][nx] = true;
+                que.push({ny, nx});
             }
         }
 
