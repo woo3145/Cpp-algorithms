@@ -20,6 +20,7 @@ void Input() {
 
 
 void Solve() {
+    cout << "test" << "\n";
 }
 
 int main() {
