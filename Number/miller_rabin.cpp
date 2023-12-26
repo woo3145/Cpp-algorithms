@@ -15,17 +15,24 @@ long long modPow (long long base, long long exp, long long mod) {
     return ret;
 }
 
-long long miller(long long num, long long seed){
-    if(num % seed == 0) return true; 
+bool miller(long long num, long long seed){
+    if(num % seed == 0) return num == seed;
 
     long long d = num - 1;
-    while(true){
-        long long tmp = modPow(seed, d, num);
+    while (d % 2 == 0) d /= 2;
 
-        if(tmp == num - 1) return true; 
-        if(d & 1) return (tmp == 1 || tmp == num - 1);
-        d >>= 1;
+    long long tmp = modPow(seed, d, num);
+    if (tmp == 1 || tmp == num - 1) return false;
+
+    while (d != num - 1) {
+        tmp = (tmp * tmp) % num;
+        d *= 2;
+
+        if (tmp == 1) return true;
+        if (tmp == num - 1) return false;
     }
+
+    return true;
 }
 
 
