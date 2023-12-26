@@ -13,6 +13,7 @@
 - [GCD](./Number/gcd.cpp)
 - [LCM](./Number/lcm.cpp)
 - [Find Prime](./Number/find_prime.cpp)
+  - [Miller-Rabin](./Number/miller_rabin.cpp)
 - [Catalan Number](./Number/catalan.cpp)
 
 ### Graph
