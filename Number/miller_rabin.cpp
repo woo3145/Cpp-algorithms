@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-#define ull unsigned long long
+#define lint unsigned long long
 
 using std::vector;
 using std::cout;
@@ -31,8 +31,8 @@ using std::cin;
 // d가 홀수라면(마지막) 나머지가 -1 또는 1이 나오면 소수일 가능성이 존재한다.
 
 
-ull modPow(ull base, ull exp, ull mod) {
-    ull ret = 1;
+lint modPow(lint base, lint exp, lint mod) {
+    lint ret = 1;
     base = base % mod;
     while(exp) {
         if(exp & 1) ret = ((__int128_t)ret * base) % mod;
@@ -44,12 +44,12 @@ ull modPow(ull base, ull exp, ull mod) {
 
 // true: 합성수
 // false: 소수일 가능성
-bool miller_rabin(ull num, ull seed) {
+bool miller_rabin(lint num, lint seed) {
     if (num % seed == 0) return true;
 
-    ull d = num - 1;
+    lint d = num - 1;
     while (1) {
-		ull tmp = modPow(seed, d, num);
+		lint tmp = modPow(seed, d, num);
 		if (d & 1)
 			return (tmp != 1 && tmp != num - 1); // d가 1도 안되고 -1도 안되면 합성수 (false)
 		else if (tmp == num - 1) // a^(d*2^r)(mod N)이 -1이라면 소수일 가능성 (결과가 1이면 페르마 정리 2번에 따라 다시 나눠짐)
@@ -62,11 +62,11 @@ bool miller_rabin(ull num, ull seed) {
     return true;
 }
 
-bool isPrime(ull n) {
+bool isPrime(lint n) {
 	if (n < 2 || (n % 2 == 0))
 		return (n == 2);
 
-	vector<ull> seeds({2, 7, 61});
+	vector<lint> seeds({2, 7, 61});
 	
 	for(auto& seed : seeds) {
 		if (n == seed)
