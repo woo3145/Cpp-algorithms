@@ -78,9 +78,12 @@ bool isPrime(lint n) {
 }
 
 int main () {
+
     for(int i = 0; i < 1000; ++i){
         if(isPrime(i)) {
             cout << i << '\n';
         }
     }
+
+    cout << isPrime(2305843009213693952) << '\n';
 }

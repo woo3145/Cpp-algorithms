@@ -12,7 +12,8 @@
 
 - [GCD](./Number/gcd.cpp)
 - [LCM](./Number/lcm.cpp)
-- [Find Prime](./Number/find_prime.cpp)
+- 소수찾기
+  - [Eratos](./Number/eratos.cpp)
   - [Miller-Rabin](./Number/miller_rabin.cpp)
 - [Catalan Number](./Number/catalan.cpp)
 
