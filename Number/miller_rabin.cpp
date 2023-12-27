@@ -31,13 +31,13 @@ using std::cin;
 // d가 홀수라면(마지막) 나머지가 -1 또는 1이 나오면 소수일 가능성이 존재한다.
 
 
-ull modPow(ull base, ull p, ull mod) {
+ull modPow(ull base, ull exp, ull mod) {
     ull ret = 1;
     base = base % mod;
-    while(p) {
-        if(p & 1) ret = (ret * base) % mod;
-        base = (base * base) % mod;
-        p >>= 1;
+    while(exp) {
+        if(exp & 1) ret = ((__int128_t)ret * base) % mod;
+        base = ((__int128_t)base * base) % mod;
+        exp >>= 1;
     }
     return ret;
 }
@@ -56,8 +56,6 @@ bool miller_rabin(ull num, ull seed) {
                                 // (나머지가 1이라면 위의 페르마 소정리 2번에 따라 a^(d*2^(r-1))(mod N)가 -1 or 1일 수 있기 때문에 판단보류)
 			return 0;
 		d >>= 1;
-
-       
 	}
 
 
