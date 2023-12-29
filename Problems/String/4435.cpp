@@ -17,7 +17,6 @@ using std::string;
 
 // 시간초과로 인해 전처리 필요: 원본 문자열에서 찾는 문자열로 나누어 떨어지지 않을때
 
-
 void createPI (vector<int>& pi, string& str);
 bool kmp(string& str, string& pattern);
 
@@ -25,13 +24,14 @@ vector<string> strings;
 
 void Input() {
     string a;
-    while(true){
-        // cin >> a;
-        // if(a == ".") break;        
-        strings.push_back("abcd");
-        strings.push_back("aaaa");
-        strings.push_back("ababab");
-    }
+    // while(true){
+    //     cin >> a;
+    //     if(a == ".") break;        
+    // }
+
+    strings.push_back("abcd");
+    strings.push_back("aaaa");
+    strings.push_back("ababab");
 }
 void Solve() {
     vector<int> answer;
