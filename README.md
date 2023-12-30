@@ -38,6 +38,7 @@
 
 - [KMP](./String/kmp.cpp)
 - [Rabin-Karp](./String/rabin-karp.cpp)
+- [Trie](./String/trie.cpp)
 
 ### DP
 
